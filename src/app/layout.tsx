@@ -22,7 +22,7 @@ export default function RootLayout({
             <div className="flex justify-between h-16 items-center">
               <div className="flex items-center">
                 <Laugh className="text-blue-500" size={32} />
-                <span className="ml-2 text-xl font-bold">Logrocket Chuck Jokes</span>
+                <span className="ml-2 text-xl font-bold">Chuck Jokes</span>
               </div>
             </div>
           </div>
