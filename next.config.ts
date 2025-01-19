@@ -1,19 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   output: "standalone",
-  productionBrowserSourceMaps: false,
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'assets.chucknorris.host',
-      },
-    ],
-  },
-  // Add fetch configuration
-  experimental: {
-    serverActions: true,
-  },
+  
 };
 
-module.exports = nextConfig;
+export default nextConfig;
