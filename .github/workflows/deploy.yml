@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      id-token: write
-      contents: read
+      id-token: write # Needed for auth with Deno Deploy
+      contents: read # Needed to clone the repository
 
     steps:
       - name: Clone repository
@@ -28,15 +28,17 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install step
+        run: "npm install"
 
       - name: Build step
-        run: npm run build
+        run: "npm run build && (cp -r public .next/standalone/public; cp -r .next/static .next/standalone/.next/static; mv .next/standalone/server.js .next/standalone/server.cjs)"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "emmanuelo22-deno-deploy-53"
-          entrypoint: "jsr:@deno/nextjs-start/v15"
-          root: "."
+          entrypoint: "./server.cjs"
+          root: ".next/standalone"
+          
+          
