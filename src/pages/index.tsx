@@ -1,5 +1,5 @@
-// pages/page.tsx
-'use server';
+// pages/index.tsx
+
 
 export async function getServerSideProps() {
   const res = await fetch('https://api.chucknorris.io/jokes/random');
