@@ -1,6 +1,7 @@
 export default async function Page() {
-  const joke = await fetch('https://api.chucknorris.io/jokes/random')
-    .then(res => res.json());
+  const joke = await fetch("https://api.chucknorris.io/jokes/random", {
+    cache: "no-store", // This will disable caching
+  }).then((res) => res.json());
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
@@ -9,7 +10,7 @@ export default async function Page() {
           {joke.value}
         </p>
         <form action="/" method="GET" className="text-center">
-          <button 
+          <button
             type="submit"
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
