@@ -1,20 +1,16 @@
-import { Laugh } from 'lucide-react';
-import './globals.css'
+import type { AppProps } from 'next/app'
+import { Laugh } from 'lucide-react'
+import Head from 'next/head'
+import '../styles/globals.css'
 
-// export const metadata = {
-//   title: 'Chuck Norris Jokes',
-//   description: 'Random Chuck Norris jokes served with SSR',
-// }
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
-    <html lang="en">
-      
-      <body>
+    <>
+      <Head>
+        <title>Logrcoket Powered Jokes</title>
+        <meta name="description" content="Random Chuck Norris jokes served with SSR" />
+      </Head>
+      <div>
         <nav className="bg-white shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16 items-center">
@@ -25,8 +21,8 @@ export default function RootLayout({
             </div>
           </div>
         </nav>
-        {children}
-      </body>
-    </html>
+        <Component {...pageProps} />
+      </div>
+    </>
   )
 }
