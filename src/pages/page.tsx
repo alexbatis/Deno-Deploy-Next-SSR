@@ -1,4 +1,4 @@
-// app/page.tsx
+// pages/page.tsx
 'use server';
 
 export async function getServerSideProps() {
