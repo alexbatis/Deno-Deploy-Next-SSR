@@ -1,9 +1,13 @@
-
-
-export default async function Page() {
+export async function getServerSideProps() {
   const joke = await fetch('https://api.chucknorris.io/jokes/random')
     .then(res => res.json());
 
+  return {
+    props: { joke }
+  };
+}
+
+export default function Page({ joke }) {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="max-w-2xl w-full bg-white rounded-lg shadow-lg p-8">
@@ -14,5 +18,3 @@ export default async function Page() {
     </div>
   );
 }
-
-
