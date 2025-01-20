@@ -1,10 +1,10 @@
 import { Laugh } from 'lucide-react';
 import './globals.css'
 
-export const metadata = {
-  title: 'Chuck Norris Jokes',
-  description: 'Random Chuck Norris jokes served with SSR',
-}
+// export const metadata = {
+//   title: 'Chuck Norris Jokes',
+//   description: 'Random Chuck Norris jokes served with SSR',
+// }
 
 export default function RootLayout({
   children,
